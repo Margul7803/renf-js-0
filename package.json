@@ -4,12 +4,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-exo1": "node ./exo1/app.js"
+    "dev-back": "nodemon --watch src/backend/** --exec \"npx ts-node src/backend/app.ts\"",
+    "dev-front": "nodemon --watch src/frontend --exec \"npx ts-node src/frontend/app.js\"",
+    "start-back": "npx ts-node src/backend/app.ts",
+    "start-front": "npx ts-node src/backend/app.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.0"
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "typescript": "^5.6.2"
   }
 }
