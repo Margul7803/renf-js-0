@@ -2,10 +2,13 @@ import express, { Express, Request, Response } from "express";
 import { Task } from "./model";
 import mongoose from "mongoose";
 import cors from "cors";
+import getConfig from './config';
 
-const mongoString = "mongodb://admin:password123@localhost:27017";
+const config = getConfig();
 
-mongoose.connect(mongoString);
+const mongoString = config.MONGODB_URI;
+
+mongoose.connect(mongoString!);
 const database = mongoose.connection;
 
 database.on('error', (error) => {
