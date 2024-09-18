@@ -1,8 +1,9 @@
 .card {
     margin-bottom: 20px;
-    width: 500px;
     display: flex !important;
     flex-direction: row !important;
+    justify-content: space-between;
+    width: 100%;
 
     .info {
         width: 100%;

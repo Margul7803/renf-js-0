@@ -19,7 +19,7 @@ defineProps<{
       </v-card-subtitle>
       <v-card-text>{{ taskProps.description }}</v-card-text>
     </div>
-      <v-btn class='btn-delete' @click="onDelete(taskProps._id)">X</v-btn>
+      <v-btn class='btn-delete' color='error' @click="onDelete(taskProps._id)">X</v-btn>
     </v-card>
 </template>
 

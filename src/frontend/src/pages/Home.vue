@@ -4,13 +4,10 @@ import TaskCard from '../components/TaskCard.vue'
 </script>
 
 <template>
-  <div class="home">
-    <h1 style="margin-bottom: 100px;">Welcom to youre taskManager™ dashboard !</h1>
-    <div class="task-list" >
-      <span v-for="(task, index) in tasks" :key="index">
-        <TaskCard :taskProps="task" @delete-task="deleteEvent"/>
-      </span>
-    </div>
+  <div class="task-list" >
+    <span style="display: flex;   max-width: 600px; width: 100%;" v-for="(task, index) in tasks" :key="index">
+      <TaskCard :taskProps="task" @delete-task="deleteEvent"/>
+    </span>
   </div>
 </template>
 
@@ -32,8 +29,13 @@ export default {
 };
 
 const deleteEvent = (taskId:string) => {
+  try {
   deleteTask(taskId)
   tasks.value = tasks.value.filter(task => task._id !== taskId);
+  }
+  catch(e) {
+    console.log('[API] error:', e)
+  }
 }
 </script>
 
@@ -43,6 +45,7 @@ const deleteEvent = (taskId:string) => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .home {
